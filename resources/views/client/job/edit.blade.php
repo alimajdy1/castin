@@ -150,7 +150,7 @@
                         <div class="attr_left">
                             <div class="attr_outer">
                                 <label>Hair Color</label>
-                                <select class="attr_control" name="hair_color">
+                                <select class="attr_control" name="hair_color" required="required">
                                     <option value="">Choose Option</option>
                                     @foreach($hair_colors as $hair_color)
                                         <option {{$job->hair_color==$hair_color->id?'selected':''}} value="{{$hair_color->id}}">{{$hair_color->name}}</option>
@@ -160,7 +160,7 @@
                             </div>
                             <div class="attr_outer">
                                 <label>Hair Style</label>
-                                <select class="attr_control" name="hair_style">
+                                <select class="attr_control" name="hair_style" required="required">
                                     <option value="">Choose Option</option>
                                     @foreach($hair_styles as $hair_style)
                                         <option {{$job->hair_style==$hair_style->id?'selected':''}} value="{{$hair_style->id}}">{{$hair_style->name}}</option>
@@ -170,7 +170,7 @@
                             </div>
                             <div class="attr_outer">
                                 <label>Eyes Color</label>
-                                <select class="attr_control" name="eyes_color">
+                                <select class="attr_control" name="eyes_color" required="required">
                                     <option value="">Choose Option</option>
                                     @foreach($eyes_colors as $eyes_color)
                                         <option {{$job->eyes_color==$eyes_color->id?'selected':''}} value="{{$eyes_color->id}}">{{$eyes_color->name}}</option>
@@ -182,7 +182,7 @@
                         <div class="attr_right">
                             <div class="attr_outer">
                                 <label>Ethnicity</label>
-                                <select class="attr_control" name="skin_color">
+                                <select class="attr_control" name="skin_color" required="required">
                                     <option value="">Choose Option</option>
                                     @foreach($skin_colors as $skin_color)
                                         <option {{$job->skin_color==$skin_color->id?'selected':''}} value="{{$skin_color->id}}">{{$skin_color->name}}</option>
@@ -192,7 +192,7 @@
                             </div>
                             <div class="attr_outer">
                                 <label>Hair Cut</label>
-                                <select class="attr_control" name="hair_cut">
+                                <select class="attr_control" name="hair_cut" required="required">
                                     <option value="">Choose Option</option>
                                     @foreach($hair_cuts as $hair_cut)
                                         <option {{$job->hair_cut==$hair_cut->id?'selected':''}} value="{{$hair_cut->id}}">{{$hair_cut->name}}</option>
@@ -202,7 +202,7 @@
                             </div>
                             <div class="attr_outer">
                                 <label>Tattoo</label>
-                                <select class="attr_control" name="tattoo">
+                                <select class="attr_control" name="tattoo" required="required">
                                     <option value="">Choose Option</option>
                                     <option value="1" {{$job->tattoo==1?'selected':''}}>Yes</option>
                                     <option value="0" {{$job->tattoo==0?'selected':''}}>No</option>
@@ -216,22 +216,22 @@
                 <div class="edit_casting_more job_more_fileds">
                     <div class="form_input">
                         <label>Job</label>
-                        <textarea class="form_control" placeholder="Job description"
+                        <textarea class="form_control" placeholder="Job description" required="required"
                                   name="description">{{$job->description}}</textarea>
                     </div>
                     <div class="form_input part-three">
                         <label>Location</label>
-                        <input type="text" class="form_control" id="location" value="{{$job->location}}"
+                        <input type="text" class="form_control" id="location" value="{{$job->location}}" required="required"
                                name="location">
                     </div>
                     <div class="form_input part-three">
                         <label>Date</label>
-                        <input class="form_date form_control datepicker" name="need_date" value="{{$job->need_date}}"
-                               class="" data-date-format="mm/dd/yyyy">
+                        <input class="form_date form_control datepicker" name="need_date" value="{{$job->need_date}}" required="required"
+                               data-date-format="mm/dd/yyyy">
                     </div>
                     <div class="form_input part-three">
                         <label>Remuneration</label>
-                        <input type="text" class="form_control" value="{{$job->remuneration}}" name="remuneration">
+                        <input type="text" class="form_control" value="{{$job->remuneration}}" name="remuneration" required="required">
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -373,7 +373,6 @@
                 description: "required",
                 need_date: {
                     required: true,
-                    date: true
                 },
                 remuneration: {
                     required: true,

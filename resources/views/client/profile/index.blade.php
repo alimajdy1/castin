@@ -36,18 +36,23 @@
             <div class="user_info">
                 <div class="profile_image">
                     <div class="avatar-upload">
-                        <label class="addPicture" for="imageUpload" style="display: {{empty(auth()->user()->imgs)?'':'none'}}">
+                        <label class="addPicture" for="imageUpload" style="display: {{empty(auth()->user()->image)?'':'none'}}">
                             <img src="{{asset('assets/images/plus.png')}}" alt="">
                             PICTURE
                         </label>
                         <div class="avatar-edit">
-                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
-                            <label class="edirPicture" for="imageUpload"  style="display: {{empty(auth()->user()->imgs)?'':'inline-block'}}"></label>
+                            <form id="profileImage" action="post" enctype="multipart/form-data">
+                            <input type='file' name="image" id="imageUpload" accept=".png, .jpg, .jpeg"/>
+                            <label class="edirPicture" for="imageUpload"  style="display: {{empty(auth()->user()->image)?'':'inline-block'}}"></label>
+                            </form>
                         </div>
                         <div class="avatar-preview">
-                            @if(!empty(auth()->user()->imgs))
+                            @if(!empty(auth()->user()->image))
                                 <div id="imagePreview"
-                                     style="background-image: url({{route('dashboard.media.image.default',['profile',auth()->user()->imgs])}})">
+                                     style="background-image: url({{route('dashboard.media.image.default',['client_profile',auth()->user()->image])}})">
+                                </div>
+                                @else
+                                <div id="imagePreview">
                                 </div>
                             @endif
                         </div>
@@ -117,6 +122,34 @@
     </div>
 @endsection
 @section('jquery_content')
+    <script>
+        // upload image and serialize form data
+
+
+
+        document.getElementById("imageUpload").onchange = function() {
+        var formData = new FormData($("#profileImage")[0]);
+        $.ajax({
+            url: "{{route('dashboard.client.profile.upload')}}",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'application/json',
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            success: function (data, textStatus, jqXHR) {
+//                if(data.status) {
+//                    $('#user_profile').prepend('<div class="alert alert-success"></div>')
+//                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('#spinMe').addClass('hidden');
+            }
+        });
+        };
+    </script>
     <script>
         var isClick = 0;
         $(document).on('click', '.delete_btn', function () {

@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
             });
             Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
                 Route::get('/index', 'ProfileController@index')->name('index');
+                Route::post('/upload', 'ProfileController@updateProfileImage')->name('upload');
                 Route::delete('/index', 'ProfileController@destroy')->name('destroy');
             });
             // Message Module

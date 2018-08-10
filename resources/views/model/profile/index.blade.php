@@ -82,32 +82,32 @@
                 <div class="clearfix"></div>
             </div>
             <div class="location">
-                <input type="text" class="form_control" placeholder="Location" id="location" value="{{$user->location}}"
+                <input type="text" class="form_control" placeholder="Location" id="location" value="{{$user->location}}" required="required"
                        name="location">
             </div>
             <div class="profile_attr">
                 <div class="attr_left">
                     <div class="attr_outer">
                         <label>Height (120~220)</label>
-                        <input type="text" max="220" min="120" name="height" class="attr_control"
+                        <input type="text" max="220" min="120" name="height" class="attr_control" required="required"
                                value="{{$user->height}}"/>
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Weight (40~140)</label>
-                        <input type="text" max="140" min="40" class="attr_control" name="weight"
+                        <input type="text" max="140" min="40" class="attr_control" name="weight" required="required"
                                value="{{$user->weight}}">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Bust/Chest (65~195)</label>
-                        <input type="text" max="195" min="65" class="attr_control" name="chest"
+                        <input type="text" max="195" min="65" class="attr_control" name="chest" required="required"
                                value="{{$user->chest}}">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Hair Color</label>
-                        <select class="attr_control" name="hair_color">
+                        <select class="attr_control" name="hair_color" required="required">
                             <option value="">Choose Option</option>
                             @foreach($hair_colors as $hair_color)
                                 <option {{$user->hair_color==$hair_color->id?'selected':''}} value="{{$hair_color->id}}">{{$hair_color->name}}</option>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="attr_outer">
                         <label>Hair Style</label>
-                        <select class="attr_control" name="hair_style">
+                        <select class="attr_control" name="hair_style" required="required">
                             <option value="">Choose Option</option>
                             @foreach($hair_styles as $hair_style)
                                 <option {{$user->hair_style==$hair_style->id?'selected':''}} value="{{$hair_style->id}}">{{$hair_style->name}}</option>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="attr_outer">
                         <label>Eyes Color</label>
-                        <select class="attr_control" name="eyes_color">
+                        <select class="attr_control" name="eyes_color" required="required">
                             <option value="">Choose Option</option>
                             @foreach($eyes_colors as $eyes_color)
                                 <option {{$user->eyes_color==$eyes_color->id?'selected':''}} value="{{$eyes_color->id}}">{{$eyes_color->name}}</option>
@@ -139,23 +139,23 @@
                 <div class="attr_right">
                     <div class="attr_outer">
                         <label>Hips (78~135)</label>
-                        <input type="text" max="135" min="78" class="attr_control" name="hips" value="{{$user->hips}}">
+                        <input type="text" max="135" min="78" class="attr_control" name="hips" value="{{$user->hips}}" required="required">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Size (35~51)</label>
-                        <input type="text" max="51" min="35" class="attr_control" name="size" value="{{$user->size}}">
+                        <input type="text" max="51" min="35" class="attr_control" name="size" value="{{$user->size}}" required="required">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Waist (65~130)</label>
-                        <input type="text" max="130" min="65" class="attr_control" name="waist"
+                        <input type="text" max="130" min="65" class="attr_control" name="waist" required="required"
                                value="{{$user->waist}}">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Skin Color</label>
-                        <select class="attr_control" name="skin_color">
+                        <select class="attr_control" name="skin_color" required="required">
                             <option value="">Choose Option</option>
                             @foreach($skin_colors as $skin_color)
                                 <option  {{$user->skin_color==$skin_color->id?'selected':''}} value="{{$skin_color->id}}">{{$skin_color->name}}</option>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="attr_outer">
                         <label>Hair Cut</label>
-                        <select class="attr_control" name="hair_cut">
+                        <select class="attr_control" name="hair_cut" required="required">
                             <option value="">Choose Option</option>
                             @foreach($hair_cuts as $hair_cut)
                                 <option {{$user->hair_cut==$hair_cut->id?'selected':''}} value="{{$hair_cut->id}}">{{$hair_cut->name}}</option>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="attr_outer">
                         <label>Tattoo</label>
-                        <select class="attr_control" name="tattoo">
+                        <select class="attr_control" name="tattoo" required="required">
                             <option value="">Choose Option</option>
                             <option value="1" {{$user->tattoo==1?'selected':''}}>Yes</option>
                             <option value="0" {{$user->tattoo==0?'selected':''}}>No</option>
@@ -282,55 +282,55 @@
         });
 
 
-        $('#modelProfileForm').validate({
-            rules: {
-                gender: "required",
-                location: "required",
-                height: {
-                    required: true,
-                    range: [120, 220]
-                },
-                weight: {
-                    required: true,
-                    range: [40, 140]
-                },
-                chest: {
-                    required: true,
-                    range: [65, 195]
-                },
-                hair_color: "required",
-                hair_style: "required",
-                eyes_color: "required",
-                hips: {
-                    required: true,
-                    range: [78, 135]
-                },
-                size: {
-                    required: true,
-                    range: [35, 51]
-                },
-                waist: {
-                    required: true,
-                    range: [65, 130]
-                },
-                skin_color: "required",
-                hair_cut: "required",
-                tattoo: "required"
-
-            },
-            errorPlacement: function (error, element) {
-                var elem = $(element);
-                if (elem.hasClass("select")) {
-                    error.appendTo(element.parent());
-                } else {
-                    error.insertAfter(element);
-                }
-                error.css('color', 'red');
-            },
-            submitHandler: function (form) {
-                form.submit();
-            }
-        });
+//        $('#modelProfileForm').validate({
+//            rules: {
+//                gender: "required",
+//                location: "required",
+//                height: {
+//                    required: true,
+//                    range: [120, 220]
+//                },
+//                weight: {
+//                    required: true,
+//                    range: [40, 140]
+//                },
+//                chest: {
+//                    required: true,
+//                    range: [65, 195]
+//                },
+//                hair_color: "required",
+//                hair_style: "required",
+//                eyes_color: "required",
+//                hips: {
+//                    required: true,
+//                    range: [78, 135]
+//                },
+//                size: {
+//                    required: true,
+//                    range: [35, 51]
+//                },
+//                waist: {
+//                    required: true,
+//                    range: [65, 130]
+//                },
+//                skin_color: "required",
+//                hair_cut: "required",
+//                tattoo: "required"
+//
+//            },
+//            errorPlacement: function (error, element) {
+//                var elem = $(element);
+//                if (elem.hasClass("select")) {
+//                    error.appendTo(element.parent());
+//                } else {
+//                    error.insertAfter(element);
+//                }
+//                error.css('color', 'red');
+//            },
+//            submitHandler: function (form) {
+//                form.submit();
+//            }
+//        });
     </script>
 
 @endsection

@@ -321,36 +321,36 @@
         });
     </script>
     <script>
-        $('#jobForm').validate({
-            rules: {
-                gender: "required",
-                location: "required",
-                hair_color: "required",
-                hair_style: "required",
-                eyes_color: "required",
-                skin_color: "required",
-                hair_cut: "required",
-                tattoo: "required",
-                title: "required",
-                description: "required",
-                need_date: {
-                    required: true,
-                },
-                remuneration: {
-                    required: true,
-                    number: true
-                },
-
-            },
-            errorPlacement: function (error, element) {
-                var elem = $(element);
-                error.insertAfter(element);
-                error.css('color', 'red');
-            },
-            submitHandler: function (form) {
-                form.submit();
-            }
-        });
+//        $('#jobForm').validate({
+//            rules: {
+//                gender: "required",
+//                location: "required",
+//                hair_color: "required",
+//                hair_style: "required",
+//                eyes_color: "required",
+//                skin_color: "required",
+//                hair_cut: "required",
+//                tattoo: "required",
+//                title: "required",
+//                description: "required",
+//                need_date: {
+//                    required: true,
+//                },
+//                remuneration: {
+//                    required: true,
+//                    number: true
+//                },
+//
+//            },
+//            errorPlacement: function (error, element) {
+//                var elem = $(element);
+//                error.insertAfter(element);
+//                error.css('color', 'red');
+//            },
+//            submitHandler: function (form) {
+//                form.submit();
+//            }
+//        });
 
     </script>
 @endsection

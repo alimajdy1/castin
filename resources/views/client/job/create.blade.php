@@ -3,16 +3,22 @@
 @section('style')
     <link href="{{asset('assets/css/bootstrap-datetimepicker.css')}}" type="text/css" rel="stylesheet">
     <style>
-        .attr_outer label{
+        .attr_outer label {
             width: 122px !important;
         }
     </style>
 @endsection
 @section('content')
     <div class="edit_profile edit_casting">
-        <a href="clientsignup.html">
-            <img src="{{asset('assets/images/close_btn.png')}}" class="closebtn">
-        </a>
+        @if(auth()->user()->jobs()->count()>0)
+            <a href="{{ route('dashboard.client.profile.index') }}">
+                <img src="{{asset('assets/images/close_btn.png')}}" class="closebtn">
+            </a>
+        @else
+            <a href="{{ route('login') }}">
+                <img src="{{asset('assets/images/close_btn.png')}}" class="closebtn">
+            </a>
+        @endif
 
         @if($errors->any())
             <div class="alert alert-danger msg-style">
@@ -198,7 +204,8 @@
                     <input type="text" class="form_control" id="location" placeholder="Location" name="location">
                 </div>
                 <div class="form_input">
-                    <input class="form_date form_control datepicker" placeholder="Date" autocomplete="off" name="need_date"
+                    <input class="form_date form_control datepicker" placeholder="Date" autocomplete="off"
+                           name="need_date"
                            data-date-format="mm/dd/yyyy">
                 </div>
                 <div class="form_input">
@@ -214,7 +221,8 @@
 @section('jquery_content')
     <script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/ion.rangeSlider.js')}}" type="text/javascript"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
+    <script type="text/javascript"
+            src="http://maps.google.com/maps/api/js?sensor=false&libraries=places&language=en-AU"></script>
     <script src="{{ asset('assets/js/jquery.validate.min.js') }}" type="text/javascript"></script>
 
     <script>
@@ -238,10 +246,10 @@
             max: 220,
             from: 150,
             to: 200,
-            onChange: function(item){
+            onChange: function (item) {
                 $('#real_height').val(item.from + "," + item.to);
             }
-            ,onStart: function(item){
+            , onStart: function (item) {
                 $('#real_height').val(item.from + "," + item.to);
             }
         });
@@ -250,11 +258,11 @@
             min: 40,
             max: 140,
             from: 60,
-            to: 100 ,
-            onChange: function(item){
+            to: 100,
+            onChange: function (item) {
                 $('#real_weight').val(item.from + "," + item.to);
             }
-            ,onStart: function(item){
+            , onStart: function (item) {
                 $('#real_weight').val(item.from + "," + item.to);
             }
         });
@@ -264,10 +272,10 @@
             max: 195,
             from: 82,
             to: 150,
-            onChange: function(item){
+            onChange: function (item) {
                 $('#real_chest').val(item.from + "," + item.to);
             },
-            onStart: function(item){
+            onStart: function (item) {
                 $('#real_chest').val(item.from + "," + item.to);
             }
 
@@ -278,10 +286,10 @@
             max: 130,
             from: 80,
             to: 120,
-            onChange: function(item){
+            onChange: function (item) {
                 $('#real_waist').val(item.from + "," + item.to);
             }
-            ,onStart: function(item){
+            , onStart: function (item) {
                 $('#real_waist').val(item.from + "," + item.to);
             }
         });
@@ -291,10 +299,10 @@
             max: 135,
             from: 84,
             to: 120,
-            onChange: function(item){
+            onChange: function (item) {
                 $('#real_hips').val(item.from + "," + item.to);
             }
-            ,onStart: function(item){
+            , onStart: function (item) {
                 $('#real_hips').val(item.from + "," + item.to);
             }
         });
@@ -304,10 +312,10 @@
             max: 51,
             from: 37,
             to: 45,
-            onChange: function(item){
+            onChange: function (item) {
                 $('#real_size').val(item.from + "," + item.to);
             }
-            ,onStart: function(item){
+            , onStart: function (item) {
                 $('#real_size').val(item.from + "," + item.to);
             }
         });
@@ -330,8 +338,8 @@
                     date: true
                 },
                 remuneration: {
-                    required:true,
-                    number:true
+                    required: true,
+                    number: true
                 },
 
             },

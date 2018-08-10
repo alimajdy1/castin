@@ -42,6 +42,7 @@ class JobController extends Controller
 
     public function update(UpdateJobRequest $request, Job $job)
     {
+        $request['need_date'] = Carbon::parse($request['need_date'])->format('Y-m-d');
         $job->update($request->all());
         return redirect()->route('dashboard.client.profile.index');
     }

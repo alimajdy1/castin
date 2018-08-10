@@ -94,17 +94,17 @@
                     </div>
                     <div class="attr_outer">
                         <label>Hair Color</label>
-                        <input type="text" readonly="readonly" value="{{$user->hair_color}}" class="attr_control" name="">
+                        <input type="text" readonly="readonly" value="{{$user->hairColor->name}}" class="attr_control" name="">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Hair Style</label>
-                        <input type="text" readonly="readonly" value="{{$user->hair_style}}" class="attr_control"/>
+                        <input type="text" readonly="readonly" value="{{$user->hairStyle->name}}" class="attr_control"/>
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Eyes Color</label>
-                        <input type="text" readonly="readonly" value="{{$user->eyes_color}}" class="attr_control"/>
+                        <input type="text" readonly="readonly" value="{{$user->eyesColor->name}}" class="attr_control"/>
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -126,12 +126,12 @@
                     </div>
                     <div class="attr_outer">
                         <label>Skin Color</label>
-                        <input type="text" value="{{$user->skin_color}}" readonly="readonly" class="attr_control" name="">
+                        <input type="text" value="{{$user->skinColor->name}}" readonly="readonly" class="attr_control" name="">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">
                         <label>Hair Cut</label>
-                        <input type="text" value="{{$user->hair_cut}}" readonly="readonly" class="attr_control" name="">
+                        <input type="text" value="{{$user->hairCut->name}}" readonly="readonly" class="attr_control" name="">
                         <div class="clearfix"></div>
                     </div>
                     <div class="attr_outer">

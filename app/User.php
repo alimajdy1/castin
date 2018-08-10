@@ -31,7 +31,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function hairColor(){
+        return $this->belongsTo('App\Constant','hair_color')->withDefault();
+    }
     
+    public function hairStyle(){
+        return $this->belongsTo('App\Constant','hair_style')->withDefault();
+    }
+    public function eyesColor(){
+        return $this->belongsTo('App\Constant','eyes_color')->withDefault();
+    }
+      public function skinColor(){
+        return $this->belongsTo('App\Constant','skin_color')->withDefault();
+    }
+     public function hairCut(){
+        return $this->belongsTo('App\Constant','hair_cut')->withDefault();
+    }
+
     public function jobs(){
         return $this->hasMany('App\Job','user_id');
     }

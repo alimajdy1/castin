@@ -42,14 +42,14 @@ class JobController extends Controller
 
     public function update(UpdateJobRequest $request, Job $job)
     {
-        $request['need_date'] = Carbon::parse($request['need_date'])->format('Y-m-d');
+        $request['need_date'] = Carbon::createFromFormat('d/m/Y',$request['need_date']);
         $job->update($request->all());
         return redirect()->route('dashboard.client.profile.index');
     }
 
     public function store(JobRequest $request)
     {
-        $request['need_date'] = Carbon::parse($request['need_date'])->format('Y-m-d');
+        $request['need_date'] = Carbon::createFromFormat('d/m/Y',$request['need_date']);
         $request['user_id'] = auth()->user()->id;
         Job::create($request->all());
         return redirect()->route('dashboard.client.profile.index');

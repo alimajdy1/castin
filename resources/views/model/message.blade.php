@@ -56,7 +56,7 @@
                     @php
                     $image = auth()->user()->image;
                     @endphp
-                    <img class="avtar" src="{{!empty($image)?route('dashboard.media.image.default',['profile',$user->image]):asset('assets/images/avat.png')}}" align="">
+                    <img class="avtar" src="{{!empty($image)?route('dashboard.media.image.default',['profile',$image]):asset('assets/images/avat.png')}}" align="">
                     <div class="clearfix"></div>
                 </div>
             </div>

@@ -209,7 +209,7 @@
                            data-date-format="mm/dd/yyyy">
                 </div>
                 <div class="form_input">
-                    <input type="text" class="form_control" placeholder="Remuneration" name="remuneration" required="required">
+                    <input type="number" class="form_control" placeholder="Remuneration" name="remuneration" required="required">
                 </div>
             </div>
             <div class="form_input text-center">

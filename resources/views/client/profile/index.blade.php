@@ -91,7 +91,7 @@
         </div>
         <div class="client_job_list">
             <ul>
-                @if(!auth()->user()->jobs->isEmpty()))
+                @if(!auth()->user()->jobs->isEmpty())
                     @foreach(auth()->user()->jobs as $job)
                         <li>
                             <div class="job_name">

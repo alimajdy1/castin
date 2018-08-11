@@ -53,7 +53,10 @@
                         <input type="text" class="message_in_text" name="">
                         <button class="btn"><img src="{{asset('assets/images/send_icon.png')}}" alt=""></button>
                     </div>
-                    <img class="avtar" src="{{asset('assets/images/avatar.png')}}" align="">
+                    @php
+                    $image = auth()->user()->image;
+                    @endphp
+                    <img class="avtar" src="{{!empty($image)?route('dashboard.media.image.default',['profile',$user->image]):asset('assets/images/avat.png')}}" align="">
                     <div class="clearfix"></div>
                 </div>
             </div>

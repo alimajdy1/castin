@@ -220,6 +220,11 @@
                                   name="description">{{$job->description}}</textarea>
                     </div>
                     <div class="form_input part-three">
+                        <label>Job Title</label>
+                        <input type="text" class="form_control" id="title" value="{{$job->title}}" required="required"
+                               name="title">
+                    </div>
+                    <div class="form_input part-three">
                         <label>Location</label>
                         <input type="text" class="form_control" id="location" value="{{$job->location}}" required="required"
                                name="location">
@@ -231,7 +236,7 @@
                     </div>
                     <div class="form_input part-three">
                         <label>Remuneration</label>
-                        <input type="text" class="form_control" value="{{$job->remuneration}}" name="remuneration" required="required">
+                        <input type="number" class="form_control" value="{{$job->remuneration}}" name="remuneration" required="required">
                     </div>
                     <div class="clearfix"></div>
                 </div>

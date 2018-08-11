@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="job_title text-center">
-                    <h3>Job title</h3>
+                    <h3>{{$job->title}}</h3>
                     <h5>Looking for</h5>
                 </div>
                 <div class="edit_profile_inner">
@@ -218,11 +218,6 @@
                         <label>Job</label>
                         <textarea class="form_control" placeholder="Job description" required="required"
                                   name="description">{{$job->description}}</textarea>
-                    </div>
-                    <div class="form_input part-three">
-                        <label>Job Title</label>
-                        <input type="text" class="form_control" id="title" value="{{$job->title}}" required="required"
-                               name="title">
                     </div>
                     <div class="form_input part-three">
                         <label>Location</label>

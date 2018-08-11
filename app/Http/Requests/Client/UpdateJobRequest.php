@@ -39,7 +39,6 @@ class UpdateJobRequest extends FormRequest
             'skin_color' => 'required|string|max:150',
             'hair_cut' => 'required|string|max:150',
             'tattoo' => 'required',
-            'title' => 'required',
             'description' => 'required',
             'remuneration' => 'required|numeric|min:0',
         ];
